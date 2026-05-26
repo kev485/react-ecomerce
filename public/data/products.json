@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "FIFA 26",
+        "precio": 99000,
+        "stock": 10,
+        "imagen": "https://i.ibb.co/HL2KJwZh/fifa26.png"
+    },
+    {
+        "id": 2,
+        "nombre": "The Last of US",
+        "precio": 150000,
+        "stock": 20,
+        "imagen": "/images/thelastofus.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Dark Souls",
+        "precio": 99000,
+        "stock": 10,
+        "imagen": "/images/darksouls.png"
+    },
+    {
+        "id": 4,
+        "nombre": "FIFA 25",
+        "precio": 99000,
+        "stock": 10,
+        "imagen": "/images/fifa25"
+    },
+    {
+        "id": 5,
+        "nombre": "Call of Duty Black Ops",
+        "precio": 85000,
+        "stock": 7,
+        "imagen": "/images/callofduty.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Minecraft",
+        "precio": 45000,
+        "stock": 20,
+        "imagen": "/images/minecraft.png"
+    },
+    {
+        "id": 7,
+        "nombre": "GTA VI",
+        "precio": 120000,
+        "stock": 5,
+        "imagen": "/images/gtavi.png"
+    },
+    {
+        "id": 8,
+        "nombre": "The Last of Us Part II",
+        "precio": 78000,
+        "stock": 8,
+        "imagen": "/images/thelastofus2.png"
+    }
+]
