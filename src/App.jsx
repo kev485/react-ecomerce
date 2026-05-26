@@ -1,26 +1,29 @@
-import './App.css'
-import Contador from './components/Contador'
-import Footer from './components/layouts/Footer'
+import { Routes, Route } from 'react-router-dom'
 import FormContainer from './components/productos/FormContainer'
-import Header from './components/layouts/Header'
-import MainContainer from './components/layouts/MainContainer'
+import Layout from './components/layouts/Layout'
+import ProductoDetalle from './components/productos/DetalleProducto'
+import ItemListContainer from './components/productos/ItemListContainer'
 import Mensajito from './components/Mensajito'
-import Nav from './components/layouts/Nav'
+import './App.css'
 
 
 
 function App() {
   return (
     <>
-      <Header/>
-      <Nav/>
-      <MainContainer/>
-      <Mensajito/>
-      <Footer/>
-      
-
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path='/' element={<h1>Inicio</h1>} />
+          <Route path='/mensajito' element={<Mensajito/>} />
+          <Route path="/producto/:id" element={<ProductoDetalle />} />
+        </Route>
+        
+      </Routes>
+      <ItemListContainer />
+      <FormContainer />
     </>
-  )
+
+  );
 }
 
 export default App

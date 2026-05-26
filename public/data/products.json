@@ -11,48 +11,48 @@
         "nombre": "The Last of US",
         "precio": 150000,
         "stock": 20,
-        "imagen": "/images/thelastofus.png"
+        "imagen": "https://i.ibb.co/Dgj1xyNd/thelastofus.png"
     },
     {
         "id": 3,
         "nombre": "Dark Souls",
         "precio": 99000,
         "stock": 10,
-        "imagen": "/images/darksouls.png"
+        "imagen": "https://i.ibb.co/Myp8KSvs/darksouls.png"
     },
     {
         "id": 4,
         "nombre": "FIFA 25",
         "precio": 99000,
         "stock": 10,
-        "imagen": "/images/fifa25"
+        "imagen": "https://i.ibb.co/xqmtqGZL/fifa25.png"
     },
     {
         "id": 5,
         "nombre": "Call of Duty Black Ops",
         "precio": 85000,
         "stock": 7,
-        "imagen": "/images/callofduty.png"
+        "imagen": "https://i.ibb.co/spmLZz0t/callofduty.png"
     },
     {
         "id": 6,
         "nombre": "Minecraft",
         "precio": 45000,
         "stock": 20,
-        "imagen": "/images/minecraft.png"
+        "imagen": "https://i.ibb.co/NddXY2fF/minecraft.png"
     },
     {
         "id": 7,
         "nombre": "GTA VI",
         "precio": 120000,
         "stock": 5,
-        "imagen": "/images/gtavi.png"
+        "imagen": "https://i.ibb.co/c48H7yL/gtavi.png"
     },
     {
         "id": 8,
         "nombre": "The Last of Us Part II",
         "precio": 78000,
         "stock": 8,
-        "imagen": "/images/thelastofus2.png"
+        "imagen": "https://i.ibb.co/jZbX5PPm/thelastofus2.png"
     }
 ]
