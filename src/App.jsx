@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import FormContainer from './components/productos/FormContainer'
+import FormContainer from './components/forms/FormContainer'
 import Layout from './components/layouts/Layout'
-import ProductoDetalle from './components/productos/DetalleProducto'
-import ItemListContainer from './components/productos/ItemListContainer'
+import ProductoDetalle from './components/pages/DetalleProducto'
+import ItemListContainer from './components/items/ItemListContainer'
 import Contacto from './components/pages/Contacto';
 import Dashboard from './components/forms/Dashboard';
 import Login from './components/pages/Login';

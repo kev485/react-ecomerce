@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; //Usamos tu contexto central
-import { db, setDoc } from "firebase/firestore"; //Importamos para grabar en Firestore
+import {  doc, setDoc } from "firebase/firestore"; //Importamos para grabar en Firestore
 import { db } from "../../firebase/config"; //Tu configuración de Firebase
 import styles from "./AuthForm.module.css";
 

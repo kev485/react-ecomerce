@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FormProducto from "./FormProducto";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import { useProductos } from "../../context/ProductosContext";
+import { useProductos } from "../context/ProductosContext";
 
 
 const IMGBB_KEY = "03e75a1b2b13bb752f47c4ccee9aef70";

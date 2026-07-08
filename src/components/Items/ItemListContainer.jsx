@@ -1,6 +1,6 @@
 import ItemList from './ItemList';
 import estilos from './ItemListContainer.module.css';
-import { useProductos } from '../../context/ProductosContext';
+import { useProductos } from '../context/ProductosContext';
 
 const ItemListContainer = () => {
     const { productos, cargando, paginaActual, totalPaginas, cargandoPagina } = useProductos();
