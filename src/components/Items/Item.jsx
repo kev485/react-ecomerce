@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 
-export default function Item({ nombre, stock, precio, imagen}) {
+export default function Item({ nombre, stock, precio, imagen, id}) {
     //1. Damos "memoria" al componente
     const [cantidad, setCantidad] = useState(0);
     const [favorito, setFavorito] = useState(false);
@@ -24,6 +24,15 @@ export default function Item({ nombre, stock, precio, imagen}) {
         }
           
     };
+
+    const { agregarACarrito } = useCart()
+
+    const manejarAgregarACarrito = () => {
+        const producto = { id, nombre, precio, imagen };
+
+        agregarACarrito(producto, cantidad);
+        alert(`Agragaste ${cantidad} unidades de ${nombre} al carrito.`);
+    }
 
     const styles = {
         estrella: {
