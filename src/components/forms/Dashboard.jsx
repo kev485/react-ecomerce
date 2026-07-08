@@ -2,8 +2,8 @@ import { useState } from "react";
 import FormContainer from "./FormContainer";
 import { useProductos } from "../context/ProductosContext";
 import styles from "./Dashboard.module.css";
-import TrashIcon from "../../assets/icons/TrashIcon";
-import EditIcon from "../../assets/icons/EditIcon"
+import TrashIcon from "../../assets/Icons/TrashIcon";
+import EditIcon from "../../assets/Icons/EditIcon"
 
 const Dashboard = () => {
     const { productos, eliminarProducto } = useProductos();
