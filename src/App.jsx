@@ -8,7 +8,7 @@ import Dashboard from './components/forms/Dashboard';
 import Login from './components/pages/Login';
 import Registro from './components/pages/Registro';
 import RutasProtegidas from './components/RutasProtegidas';
-import ResultadosBusqueda from './components/RutasProtegidas'
+import ResultadosBusqueda from './components/search/ResultadoBusqueda'
 import './App.css'
 import Carrito from './components/pages/Carrito'
 
