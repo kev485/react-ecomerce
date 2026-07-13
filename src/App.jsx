@@ -26,7 +26,7 @@ function App() {
                 <h1>Inicio</h1>
 
                 <img
-                  src="https://i.ibb.co/YTycQhCB/banner8.png"
+                  src="https://i.ibb.co/0yk6SjWs/banner9.png"
                   alt="Banner"
                   className="bannerInicio"
                 />
