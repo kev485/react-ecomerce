@@ -1,38 +1,46 @@
-import { createContext, useState, useEffect, useContext, Children } from "react";
-import { collection, onSnapshot, query, doc, deleteDoc, addDoc } from "firebase/firestore";
+import { createContext, useContext } from "react";
+import { collection, doc, updateDoc, deleteDoc, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { usePaginacion } from "../../hooks/usePaginacion"
 
 export const ProductosContext = createContext();
 
-export const ProductosProvider = ({ Children}) => {
-    const [productos, setProductos] = useState([]);
+export const ProductosProvider = ({ children }) => {
+    // Consumimos el hook generico pasandole la coleccion especifica de este contexto
+    const {
+        data: productos,
+        cargando,
+        paginaActual,
+        totalPaginas,
+        cargarPagina,
+        refrescarPagina
+    } = usePaginacion("productos-nacionales", "nombre", 4);
 
-    //Leemos en tiempo real (onSnapshot)
-    useEffect(() => {
-        const consulta = query(collection(db, "productos-nacionales"));
-        const unsub = onSnapshot(consulta, snapshot => {
-            setProductos(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data( ) })));
-        });
-        return () => unsub();
-    }, []);
+    // Operaciones CRUD
+    const agregarProducto = async (nuevoProd) => {
+        await addDoc(collection(db, "productos-nacionales"), nuevoProd);
+        refrescarPagina();
+    };
 
     const eliminarProducto = async (id) => {
         await deleteDoc(doc(db, "productos-nacionales", id));
-        // No hace falta setProductos porque onSnapshot lo hace solo al detectar el cambio
+        refrescarPagina();
     };
 
-    const agregarProducto = async (nuevoProd) => {
-        await addDoc(collection(db, "producto-nacionales"), nuevoProd);
+    const editarProducto = async (id, datosActualizados) => {
+        const ref = doc(db, "productos-nacionales", id);
+        await updateDoc(ref, datosActualizados);
+        refrescarPagina();
     };
 
     return (
-        <ProductosContext.Provider value={{ productos, eliminarProducto, agregarProducto }}>
-            {Children}
+        <ProductosContext.Provider value={{
+            productos, cargando, paginaActual, totalPaginas,
+            cargarPagina, eliminarProducto, agregarProducto, editarProducto
+        }}>
+            {children}
         </ProductosContext.Provider>
     );
 };
 
-// Custom Hook de producto
-export const useProductos = () => {
-    return useContext(ProductosContext);
-};
+export const useProductos = () => useContext(ProductosContext);

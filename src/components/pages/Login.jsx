@@ -63,7 +63,7 @@ const Login = () => {
                             type="password"
                             placeholder="••••••••"
                             value={password}
-                            onChange={(evento) => setPssword(evento.target.value)}
+                            onChange={(evento) => setPassword(evento.target.value)}
                             required
                         />
                     </div>

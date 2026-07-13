@@ -16,7 +16,7 @@ const Paginacion = ({ paginaActual, totalPaginas, cargarPagina, cargando }) => {
 
     //Creamos el array con los numeros especificos a renderizar
     const paginasAMostrar = [];
-    for (let i = paginaInicial; i <= paginaFinal; 1++) {
+    for (let i = paginaInicial; i <= paginaFinal; i++) {
         paginasAMostrar.push(i);
     }
 

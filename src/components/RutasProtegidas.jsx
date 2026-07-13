@@ -1,8 +1,8 @@
-import { Children } from "react";
+import { children } from "react";
 import { useAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 
-const RutasProtegidas = ({ Children, rolesPermitidos }) => {
+const RutasProtegidas = ({ children, rolesPermitidos }) => {
 
     const { user, loading } = useAuth();
     //Si no hay usuario, mandamos a loguear
@@ -16,7 +16,7 @@ const RutasProtegidas = ({ Children, rolesPermitidos }) => {
     }
 
     //Si paso todos los filtros, lo dejamos ver la pantalla protegida
-    return <>{Children}</>
+    return <>{children}</>
 };
 
 export default RutasProtegidas;

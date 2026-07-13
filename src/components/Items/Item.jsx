@@ -1,61 +1,62 @@
-import { useState } from "react";
+import { useState } from 'react';
+import estilos from './Item.module.css';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
+function Item({ nombre, stock, precio, imagen, id }) {
+  const [favorito, setFavorito] = useState(false);
+  const [agregado, setAgregado] = useState(false); // Nuevo estado para el feedback
 
+  const { agregarACarrito } = useCart();
 
-export default function Item({ nombre, stock, precio, imagen, id}) {
-    //1. Damos "memoria" al componente
-    const [cantidad, setCantidad] = useState(0);
-    const [favorito, setFavorito] = useState(false);
+  const toggleFavorito = () => setFavorito(!favorito);
 
-    const toggleFavorito = () => {
-        setFavorito(!favorito);
-    };
+  const manejarAgregarACarrito = () => {
+    if (stock <= 0 || agregado) return;
 
-    //2. Creamos la lógica de la acción
-    const incrementar = () => {
-        if (cantidad < stock) {
-            setCantidad(cantidad + 1);
-        }
-    };
+    const producto = { id, nombre, precio, imagen, cantidad: 1 };
+    agregarACarrito(producto);
+    // Efecto de feedback
+    setAgregado(true);
+    // Volver al estado original después de 1.5 segundos
+    setTimeout(() => setAgregado(false), 1500);
+  };
 
-    const decrementar = () => {
-        if(cantidad > 0) {
-           setCantidad(cantidad - 1);
-        }
-          
-    };
+  return (
+    <article className={estilos.card}>
+      <Link to={`/producto/${id}`} className={estilos.imageWrapper}>
+        <img src={imagen} alt={nombre} className={estilos.imagen} />
+        <div className={estilos.imagenOverlay} />
+      </Link>
 
-    const { agregarACarrito } = useCart()
-
-    const manejarAgregarACarrito = () => {
-        const producto = { id, nombre, precio, imagen };
-
-        agregarACarrito(producto, cantidad);
-        alert(`Agragaste ${cantidad} unidades de ${nombre} al carrito.`);
-    }
-
-    const styles = {
-        estrella: {
-            cursor: 'pointer',
-            fontSize: '24px',
-            userSelect: 'none'
-        }
-    };
-    return (
-        <div>
-            
-            <h1>{nombre}</h1>
-            <h2>{precio}ARS</h2>
-            <span onClick={toggleFavorito} style={{... styles.estrella, color: favorito ? '#FFD700' : '#ccc' }}> 
-                {favorito ? '★' : '☆'}
-            </span>
-            <img src={imagen}/>
-            {/* 3. Conectamos la acción (onClick) a la lógica */}
-            <button onClick={decrementar}>-</button>
-            <p>{cantidad}</p>
-            <button onClick={incrementar}>+</button>
+      <div className={estilos.body}>
+        <div className={estilos.header}>
+          <Link to={`/producto/${id}`} className={estilos.nombreLink}>
+            <h2 className={estilos.nombre}>{nombre}</h2>
+          </Link>
+          <button
+            onClick={toggleFavorito}
+            className={`${estilos.favorito} ${favorito ? estilos.favoritoActivo : ''}`}
+            aria-label={favorito ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+          >
+            {favorito ? '♥' : '♡'}
+          </button>
         </div>
-    )
+
+        <p className={estilos.precio}>
+          <span className={estilos.moneda}>ARS</span>
+          {Number(precio).toLocaleString('es-AR')}
+        </p>
+
+        <button 
+          onClick={manejarAgregarACarrito} 
+          className={`${estilos.btnDetalle} ${agregado ? estilos.btnAgregado : ''}`}
+        >
+          {agregado ? '¡Producto agregado!' : stock <= 0 ? 'Sin Stock' : 'Agregar al Carrito'}
+        </button>
+      </div>
+    </article>
+  );
 }
 
-
+export default Item;

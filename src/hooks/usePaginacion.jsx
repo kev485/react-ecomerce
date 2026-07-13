@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { collection, query, orderBy, limit, getDoc, startAfter, getCountFromServer } from "firebase/firestore";
+import { collection, query, orderBy, limit, getDocs, startAfter, getCountFromServer } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 export const usePaginacion = (nombreColeccion, campoOrden = "nombre", itemsPorPagina = 8) => {
@@ -46,7 +46,7 @@ export const usePaginacion = (nombreColeccion, campoOrden = "nombre", itemsPorPa
             }
 
             // Pedirle los datos a Firebase
-            const snapshot = await getDoc(consulta);
+            const snapshot = await getDocs(consulta);
 
             // Pedirle los datos a Firebase
             const items = snapshot.docs.map(doc => ({

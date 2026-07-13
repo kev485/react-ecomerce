@@ -1,53 +1,37 @@
 import ItemList from './ItemList';
 import estilos from './ItemListContainer.module.css';
-import { useProductos } from '../context/ProductosContext';
+import { useProductos } from '../../components/context/ProductosContext'; 
+import Paginacion from '../Paginacion'
 
 const ItemListContainer = () => {
-    const { productos, cargando, paginaActual, totalPaginas, cargandoPagina } = useProductos();
+  const { productos, cargando, paginaActual, totalPaginas, cargarPagina } = useProductos();
 
-    if (cargando && productos.length === 0) {
-        return (
-            <div className={estilos.estaWrapper}>
-                <div className={estilos.spinner} aria-label="Cargando" />
-                <p className={estilos.estadoTexto}>Cargando productos...</p>
-            </div>
-        );
-    }
-
+  if (cargando && productos.length === 0) {
     return (
-        <main className={estilos.contenerdor}>
-            <header className={estilos.encabezado}>
-                <h1 className={estilos.titulo}>Nuestros Productos</h1>
-            </header>
-
-            <ItemList productos={productos} />
-
-            {/* Paginacion */}
-            <div className={estilos.paginacion}>
-                <button className={estilos.btnNav} disabled={paginaActual === 1 || cargando} onClick={() => cargarPagina(paginaActual - 1)}> ← </button>
-
-                <div className={estilos.numeros}>
-                    {[...Array(totalPaginas)].map((_, index) => (
-                        <button 
-                          key={index + 1}
-                          className={`${estilos.btnNumero} ${paginasActual === index + 1 ? estilos.activo : ''}`}
-                          onClick={() => cargandoPagina(index + 1)}
-                          disabled={cargando}>
-                            {index + 1} 
-                          </button>
-                         
-                    ))}
-                </div>
-
-                <button
-                  className={estilos.btnNav}
-                  disabled={paginaActual === totalPaginas || cargando}
-                  onClick={() => cargarPagina(paginaActual + 1)}>
-                    →
-                  </button>
-            </div>
-        </main>
+      <div className={estilos.estadoWrapper}>
+        <div className={estilos.spinner} aria-label="Cargando" />
+        <p className={estilos.estadoTexto}>Cargando productos...</p>
+      </div>
     );
+  }
+
+  return (
+    <main className={estilos.contenedor}>
+      <header className={estilos.encabezado}>
+        <h1 className={estilos.titulo}>Nuestros Productos</h1>
+      </header>
+
+      <ItemList productos={productos} />
+
+      {/* Paginación limpia y reutilizable */}
+      <Paginacion 
+        paginaActual={paginaActual}
+        totalPaginas={totalPaginas}
+        cargarPagina={cargarPagina}
+        cargando={cargando}
+      />
+    </main>
+  );
 };
 
-export default ItemListContainer
+export default ItemListContainer;

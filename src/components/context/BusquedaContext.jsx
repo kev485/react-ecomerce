@@ -1,13 +1,13 @@
-import { createContext, useState, useContext, Children } from "react";
+import { createContext, useState, useContext } from "react";
 //creamos el contexto de busqueda
 const BusquedaContext = createContext();
 
-export const BusquedaProvider = ({ Children }) => {
+export const BusquedaProvider = ({ children }) => {
     const [busqueda, setBusqueda] = useState("");
 
     return (
         <BusquedaContext.Provider value={{busqueda, setBusqueda }}>
-            {Children}
+            {children}
         </BusquedaContext.Provider>
     );
 }

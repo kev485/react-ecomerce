@@ -168,6 +168,7 @@
     font-size: 3rem;
     opacity: 0.15;
     margin-bottom: 0.5rem;
+    color: #ffffff;
 }
 
 .emptyTitle {
@@ -179,7 +180,7 @@
 
 .emptyText {
     font-size: 0.875rem;
-    color: #555;
+    color: #ffffff;
     max-width: 28ch;
     line-height: 1.6;
 }

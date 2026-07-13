@@ -15,7 +15,7 @@ const Dashboard = () => {
     const [modalAbierto, setModalAbierto] = useState(false);
 
     const abrirAgregar = () =>{
-        setProductosEditando(null);
+        setProductoEditando(null);
         setModalAbierto(true);
     };
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
     return (
         <div className={styles.container}>
             <header className={styles.container}>
-                <h1>Invemtario</h1>
+                <h1>Inventario</h1>
                 <button className={styles.btnNuevo} onClick={abrirAgregar}>
                     + Agregar Producto
                 </button>

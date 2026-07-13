@@ -59,7 +59,7 @@ const FormContainer = ({ cerrarModal, productoEditar = null }) => {
         const form = new FormData();
         form.append("image", archivo);
 
-        const res = await fetch(`https: //api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+        const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
             method: "POST",
             body: form,
         });

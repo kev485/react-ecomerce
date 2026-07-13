@@ -1,213 +1,177 @@
-.container {
-    min-height: 100vh;
-    width: 80%;
-    background-color: var(--clr-bg);
-    color: var(--clr-text);
-    padding: 3rem clamp(1.5rem, 5vw, 4rem);
-    font-family: 'Inter', system-ui, sans-serif;
+.wrapper {
+  padding: 0.25rem 0;
 }
 
-/*  Header  */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--clr-border);
+.titulo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--clr-text);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
-.header h1 {
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    letter-spacing: -0.02em;
+/* ── Formulario ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.btnNuevo {
-    padding: 0.65rem 1.4rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #0d0e10;
-    background-color: var(--clr-accent);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: opacity 0.2s ease, transform 0.15s ease;
+/* Campo individual */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
-.btnNuevo:hover { opacity: 0.85;}
-.btnNuevo:active { transform: scale(0.97); }
-
-/*  Modal overlay  */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    padding: 1rem;
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
 }
 
-.modal {
-    position: relative;
-    background-color: var(--clr-surface);
-    border: 1px solid var(--clr-border);
-    border-radius: var(--radius);
-    padding: 2.25rem 2rem;
-    width: 100%;
-    max-width: 520px;
-    max-height: 90vh;
-    overflow: auto;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+/* Input base */
+.input {
+  background-color: #0d0e10;
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  color: var(--clr-text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
-/*  scrollbar del modal  */
-.modal::-webkit-scrollbar       { width: 4px; }
-.modal::-webkit-scrollbar-track { background: transparent;}
-.modal::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: 4px;}
-
-.btnClose {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    line-height: 1;
-    color: var(--clr-border);
-    background: transparent;
-    border: 1px solid var(--clr-border);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
+.input::placeholder {
+  color: #383840;
 }
 
-.btnClose:hover {
-    color: var(--clr-text);
-    border-color: rgba(255, 255, 255, 0.18);
+.input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-glow);
 }
 
-/*   Lista de Productos   */
-.cuerpo { margin-top: 0.5rem; }
-
-.lista {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 0;
+/* Textarea */
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
 }
 
-/*    Item    */
-.item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.9rem 1.1rem;
-    background-color: var(--clr-surface);
-    border: 1px solid var(--clr-border);
-    border-radius: 12px;
-    transition: boder-color 0.2s ease;
+/* Select */
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23808090' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
 }
 
-.item:hover {
-    border-color: rgba(255, 255, 255, 0.12);
+.select option {
+  background-color: #111214;
+  color: var(--clr-text);
 }
 
-/*  Miniatura  */
-.itemImg {
-    width: 90px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--clr-border);
-    flex-shrink: 0;
+/* Fila de dos columnas */
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-/*  Info  */
-.itemInfo {
-    flex: 1;
-    min-width: 0;
+/* Input con prefijo $ */
+.inputConPrefijo {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.itemInfo h4 {
-    font-size: 1.2rem;
-    color: var(--clr-text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 0.25rem;
+.prefijo {
+  position: absolute;
+  left: 1rem;
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  pointer-events: none;
+  font-family: 'DM Mono', monospace;
 }
 
-.itemMeta{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+.inputConEspacio {
+  padding-left: 1.75rem;
 }
 
-.precio {
-    font-family: 'DM Mono', monospace;
-    font-size: 1rem;
-    color: var(--clr-accent);
+/* ── File input ── */
+.fileLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
 }
 
-.categoria {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--clr-muted);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--clr-border);
-    border-radius: 4px;
-    padding: 0.1rem 0.5rem;
+/* Oculta el input nativo */
+.fileInput {
+  display: none;
 }
 
-.stock {
-    font-size: 1rem;
-    color: var(--clr-muted);
+.fileBtn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  background: transparent;
+  border: 1px solid var(--clr-accent);
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
-/*  Aciones  */
-.itemAcciones {
-    display: flex;
-    gap: 0.4rem;
-    flex-shrink: 0;
+.fileLabel:hover .fileBtn {
+  background-color: var(--clr-accent-glow);
 }
 
-/* Base compartida para botones de acción */
-.btnEditar,
-.btnBorrar {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    justify-content: center;
-    width: 2.4rem;
-    height: 2.4rem;
-    background: transparent;
-    border: 1px solid var(--clr-border);
-    border-radius: 7px;
-    cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-    color: var(--clr-muted);
+.fileName {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
 }
 
-/*   Borrar => rojo  */
-.btnBorrar:hover {
-    color: #ff4d4d;
-    border-color: rgba(255, 77, 77, 0.3);
-    background-color: rgba(255, 77, 77, 0.07);
+.btnGuardar {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0d0e10;
+  background-color: var(--clr-accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  align-self: flex-end;
 }
 
-.btnEditar:active,
-.btnBorrar:active{ transform: scale(0.94);}
+.btnGuardar:hover {
+  opacity: 0.88;
+}
+
+.btnGuardar:active {
+  transform: scale(0.97);
+}
+
+.btnGuardar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
