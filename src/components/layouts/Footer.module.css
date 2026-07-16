@@ -70,3 +70,89 @@
     gap: 1.2rem;
   }
 }
+
+/* ===========================
+   EQUIPO
+=========================== */
+
+.teamSection{
+    width:100%;
+    max-width:1200px;
+    text-align:center;
+}
+
+.teamTitle{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:2rem;
+    letter-spacing:1px;
+}
+
+.teamContainer{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:280px;
+    background:#121212;
+    border:1px solid #252525;
+    border-radius:18px;
+    padding:1.8rem;
+    text-decoration:none;
+    color:#fff;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#e71134;
+    box-shadow:0 15px 35px rgba(231,17,52,.30);
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #e71134;
+    margin-bottom:1rem;
+}
+
+.card h3{
+    margin:.5rem 0;
+    font-size:1.2rem;
+}
+
+.cargo{
+    display:block;
+    color:#e71134;
+    font-weight:bold;
+    margin-bottom:.8rem;
+    font-size:.95rem;
+}
+
+.card p{
+    color:#c9c9c9;
+    font-size:.9rem;
+    line-height:1.5;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:768px){
+
+    .teamContainer{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:90%;
+        max-width:330px;
+    }
+}
